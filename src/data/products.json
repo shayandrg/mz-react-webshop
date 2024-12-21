@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "name": "Wireless Mouse",
+      "price": 25.99,
+      "description": "Ergonomic wireless mouse for smooth navigation.",
+      "image": "https://img.freepik.com/free-photo/close-up-wireless-mouse_23-2149383717.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Mechanical Keyboard",
+      "price": 59.99,
+      "description": "RGB mechanical keyboard with customizable keys.",
+      "image": "https://img.freepik.com/free-photo/modern-mechanical-gaming-keyboard_23-2149197294.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Bluetooth Headphones",
+      "price": 89.99,
+      "description": "Noise-canceling over-ear headphones with deep bass.",
+      "image": "https://img.freepik.com/free-photo/close-up-modern-wireless-headphones_23-2148346456.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Smart Watch",
+      "price": 199.99,
+      "description": "Track your fitness and daily activities in style.",
+      "image": "https://img.freepik.com/free-photo/smart-watch-with-black-strap_23-2149175675.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Gaming Chair",
+      "price": 349.99,
+      "description": "Ergonomic chair designed for long gaming sessions.",
+      "image": "https://img.freepik.com/free-photo/professional-gaming-chair-setup_23-2149643552.jpg"
+    },
+    {
+      "id": 6,
+      "name": "External SSD",
+      "price": 129.99,
+      "description": "1TB portable SSD with fast transfer speeds.",
+      "image": "https://img.freepik.com/free-photo/external-ssd-connected-modern-laptop_23-2149163246.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Action Camera",
+      "price": 299.99,
+      "description": "Capture adventures in 4K with waterproof durability.",
+      "image": "https://img.freepik.com/free-photo/action-camera-outdoor-mounting_23-2149647573.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Portable Speaker",
+      "price": 49.99,
+      "description": "Compact Bluetooth speaker with crystal-clear sound.",
+      "image": "https://img.freepik.com/free-photo/portable-bluetooth-speaker-dark-surface_23-2149783840.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Tablet Stand",
+      "price": 29.99,
+      "description": "Adjustable stand for tablets and e-readers.",
+      "image": "https://img.freepik.com/free-photo/modern-tablet-stand-wooden-table_23-2149183412.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Smartphone Gimbal",
+      "price": 99.99,
+      "description": "Stabilize your phone videos like a pro.",
+      "image": "https://img.freepik.com/free-photo/smartphone-gimbal-setup-shot_23-2149645730.jpg"
+    }
+  ]
+  
