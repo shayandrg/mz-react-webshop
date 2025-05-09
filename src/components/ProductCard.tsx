@@ -1,9 +1,28 @@
-import React from 'react';
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  description: string;
+}
 
-const ProductCard = ({ product, addToCart }: any) => (
+interface ProductCardProps {
+  product: Product;
+  addToCart: (product: Product) => void;
+  onProductSelect: (product: Product) => void;
+}
+
+const ProductCard = ({ product, addToCart, onProductSelect }: ProductCardProps) => (
     <div className="product-card">
-        <img src={product.image} alt={product.name} />
-        <h3>{product.name}</h3>
+        <img 
+            src={product.image} 
+            alt={product.name} 
+            onClick={() => onProductSelect(product)}
+            style={{ cursor: 'pointer' }}
+        />
+        <h3 onClick={() => onProductSelect(product)} style={{ cursor: 'pointer' }}>
+            {product.name}
+        </h3>
         <div>
         <p>{product.price} SEK</p>
         <button onClick={() => addToCart(product)}>Add to cart</button>

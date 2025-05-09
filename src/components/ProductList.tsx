@@ -1,10 +1,28 @@
-import React from 'react';
 import ProductCard from './ProductCard';
 
-const ProductList = ({ products, addToCart }: any) => (
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  description: string;
+}
+
+interface ProductListProps {
+  products: Product[];
+  addToCart: (product: Product) => void;
+  onProductSelect: (product: Product) => void;
+}
+
+const ProductList = ({ products, addToCart, onProductSelect }: ProductListProps) => (
   <div>
-    {products.map((product: any) => (
-      <ProductCard key={product.id} product={product} addToCart={addToCart} />
+    {products.map((product) => (
+      <ProductCard 
+        key={product.id} 
+        product={product} 
+        addToCart={addToCart} 
+        onProductSelect={onProductSelect}
+      />
     ))}
   </div>
 );

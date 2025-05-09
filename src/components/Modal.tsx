@@ -1,7 +1,17 @@
 import ReactModal from 'react-modal';
-import React from 'react';
 
-const Modal = ({ isOpen, onRequestClose, product }: any) => (
+interface ModalProps {
+  isOpen: boolean;
+  onRequestClose: () => void;
+  product: {
+    name: string;
+    image: string;
+    description: string;
+    price: number;
+  } | null;
+}
+
+const Modal = ({ isOpen, onRequestClose, product }: ModalProps) => (
 <ReactModal isOpen={isOpen} onRequestClose={onRequestClose} className="modal">
   {product && (
     <div>

@@ -1,11 +1,23 @@
-import React from 'react';
+import { ChangeEvent } from 'react';
 
-const SearchBar = ({ onSearch }: { onSearch: (query: string) => void }) => (
-  <input
-    type="text"
-    placeholder="Search products"
-    onChange={(e) => onSearch(e.target.value)}
-  />
-);
+interface SearchBarProps {
+  onSearch: (query: string) => void;
+}
+
+const SearchBar = ({ onSearch }: SearchBarProps) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onSearch(e.target.value);
+  };
+
+  return (
+    <div className="search-bar">
+      <input
+        type="text"
+        placeholder="Search products..."
+        onChange={handleChange}
+      />
+    </div>
+  );
+};
 
 export default SearchBar;
