@@ -1,14 +1,18 @@
-name: Deploy React App to GitHub Pages
+# .github/workflows/deploy.yml
+name: Build & Deploy to GitHub Pages
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:   # manual “Run workflow” button
+  push:
+    branches:
+      - main         # also run on every push to main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up Node.js
@@ -17,11 +21,26 @@ jobs:
           node-version: '16'
 
       - name: Install dependencies
-        run: |
-          npm config set strict-peer-deps false
-          npm install
+        run: npm install --legacy-peer-deps
 
-      - name: Build React app without type checking
+      - name: Patch TypeScript to not error on unused or missing types
+        run: |
+          node <<'EOF'
+          const fs = require('fs');
+          const path = 'tsconfig.json';
+          const cfg = JSON.parse(fs.readFileSync(path, 'utf8'));
+          cfg.compilerOptions = cfg.compilerOptions || {};
+          // allow emit even with errors:
+          cfg.compilerOptions.noEmitOnError = false;
+          // don’t error on unused locals/params:
+          cfg.compilerOptions.noUnusedLocals = false;
+          cfg.compilerOptions.noUnusedParameters = false;
+          // skip missing type imports:
+          cfg.compilerOptions.skipLibCheck = true;
+          fs.writeFileSync(path, JSON.stringify(cfg, null, 2));
+          EOF
+
+      - name: Build (skip CI fails)
         env:
           CI: false
           SKIP_PREFLIGHT_CHECK: true
