@@ -1,4 +1,4 @@
-name: Build and Deploy React App to GitHub Pages
+name: Deploy React App to GitHub Pages
 
 on:
   workflow_dispatch:
@@ -8,22 +8,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: |
+          npm config set strict-peer-deps false
+          npm install
 
-      - name: Remove type-check script
-        run: rm ./node_modules/react-scripts/scripts/utils/verifyTypeScriptSetup.js
-
-      - name: Build project (skip type errors)
-        run: CI=false npm run build
+      - name: Build React app without type checking
+        env:
+          CI: false
+          SKIP_PREFLIGHT_CHECK: true
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
